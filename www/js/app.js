@@ -41,6 +41,40 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
       }
     }
   })
+  .state('app.about', {
+    url: '/about',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/about.html'
+      }
+    }
+  })
+  .state('app.services', {
+    url: '/services',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/services.html'
+      }
+    }
+  })
+  .state('app.pulse-consultation', {
+    url: '/pulse-consultation',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/pulse-consultation.html'
+      }
+    }
+  })
+  .state('app.detox-package', {
+    url: '/detox-package',
+    cache: false,
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/detox-package.html'
+      }
+    }
+  })
  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

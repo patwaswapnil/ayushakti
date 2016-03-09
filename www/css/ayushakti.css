@@ -1,7 +1,13 @@
 /* Empty. Add your own CSS if you like */
 /*primary color #35704D */
+.bar.bar-balanced {
+    border-color: #35704D;
+    background-color: #35704D;
+     background-image: linear-gradient(0deg, #e42112, #e42112 50%, transparent 50%); 
+    color: #fff;
+}
 .ayu-primary{
-	background-color: #35704D !important;
+	background-color: #35704D ;
 }
 .white{
 	color: #fff !important;
@@ -33,12 +39,7 @@ h4:first-child {
 .title-bordered {
     border-top: solid 2px #bbb;
     padding-top: 30px;
-}
-
-p {
-    color: #555;
-    margin: 0 0 25px;
-}
+} 
 
 .no-border {
     border: none;
@@ -265,4 +266,13 @@ p {
 }
 .mb10{
 	    margin-bottom: 10px;
+}
+.w100{
+    width: 100% !important;
+}
+.justify{
+    text-align: justify;
+}
+.button.button-balanced { 
+    background-color: #35704D; 
 }

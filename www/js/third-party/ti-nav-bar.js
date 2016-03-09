@@ -63,7 +63,8 @@ angular.module('tiNavBar', ['ionic'])
                             var header = angular.element(navbars[i]);
                             header.css({
                                 borderColor: 'rgba(' + targetRgbs[0] + ', ' + targetRgbs[1] + ', ' + targetRgbs[2] + ', ' + opacity + ')',
-                                backgroundColor: 'rgba(' + targetRgbs[0] + ', ' + targetRgbs[1] + ', ' + targetRgbs[2] + ', ' + opacity + ')'
+                                backgroundColor: 'rgba(' + targetRgbs[0] + ', ' + targetRgbs[1] + ', ' + targetRgbs[2] + ', ' + opacity + ')',
+                                color: 'rgba(' + 255 + ', ' + 255 + ', ' + 255 + ', ' + opacity + ')'
                             })
                         }
                     });
@@ -89,13 +90,13 @@ angular.module('tiNavBar', ['ionic'])
             makeNavBarTransparent: function () {
                 for (var i = 0; i < navbars.length; i++) {
                     var header = angular.element(navbars[i]);
-                    header.css({borderColor: 'transparent', backgroundColor: 'transparent'})
+                    header.css({borderColor: 'transparent', boxShadow: 'none',  backgroundColor: 'transparent', color: 'transparent'})
                 }
             },
             resetNavBar: function () {
                 for (var i = 0; i < navbars.length; i++) {
                     var header = angular.element(navbars[i]);
-                    header.css({borderColor: '', backgroundColor: ''})
+                    header.css({borderColor: '', boxShadow: 'none', backgroundColor: '',  color: ''})
                 }
             },
             getNavBars: function () {
