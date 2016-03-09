@@ -32,8 +32,14 @@ angular.module('tiNavBar', ['ionic'])
                 tiNavBarDelegate.makeNavBarTransparent();
                 var opacity = 0;
 
-                function onScroll(event) {
-                    var scrollTop = event.detail.scrollTop;
+                function onScroll(event) { 
+
+                    if(ionic.Platform.isAndroid()){
+                    var scrollTop = event.target.scrollTop;
+                    }
+                    else {
+                    var scrollTop = event.detail.scrollTop;   
+                    }
                     if (scrollTop <= 140) {
                         handleNavBarFade(scrollTop);
                     } else {
@@ -90,7 +96,7 @@ angular.module('tiNavBar', ['ionic'])
             makeNavBarTransparent: function () {
                 for (var i = 0; i < navbars.length; i++) {
                     var header = angular.element(navbars[i]);
-                    header.css({borderColor: 'transparent', boxShadow: 'none',  backgroundColor: 'transparent', color: 'transparent'})
+                    header.css({borderColor: 'transparent', boxShadow: 'none',  backgroundColor: 'transparent', color: 'transparent', backgroundImage: 'background-image: linear-gradient(0deg, transparent , transparent 50%, transparent 50%)'})
                 }
             },
             resetNavBar: function () {
