@@ -21,6 +21,19 @@ angular.module('tiNavBar', ['ionic'])
             }
         }
     })
+    .directive('removeShadow', function (tiNavBarDelegate, $rootScope) {
+        return {
+            restrict: 'A',
+            link: function ($scope, $element, $attr) { 
+                 $rootScope.$on('$stateChangeStart', function (event, toState) {
+                    if (toState.name != $attr.stateName) {
+                        tiNavBarDelegate.addShadow();
+                    }
+                });
+               tiNavBarDelegate.removeShadow()
+            }
+        }
+    })
 
     .directive('tiFadeInNavBarOnScroll', function (tiNavBarDelegate, $rootScope) {
         return {
@@ -45,6 +58,8 @@ angular.module('tiNavBar', ['ionic'])
                     } else {
                         ionic.requestAnimationFrame(function () {
                             tiNavBarDelegate.resetNavBar();
+                            tiNavBarDelegate.addShadow();
+
                         });
                     }
                 }
@@ -55,6 +70,8 @@ angular.module('tiNavBar', ['ionic'])
                     // TODO: make less hardcoded numbers and more in params to this directive
                     if (scrollTop <= 20) {
                         opacity = 0;
+                        tiNavBarDelegate.removeShadow();
+
                     } else if (scrollTop > 20 && scrollTop <= 140) {
                         opacity = (scrollTop - 20) / 120;
                     } else {
@@ -102,11 +119,23 @@ angular.module('tiNavBar', ['ionic'])
             resetNavBar: function () {
                 for (var i = 0; i < navbars.length; i++) {
                     var header = angular.element(navbars[i]);
-                    header.css({borderColor: '', boxShadow: 'none', backgroundColor: '',  color: ''})
+                    header.css({borderColor: '', boxShadow: 'none', backgroundColor: '',  color: '', backgroundImage: 'auto'})
                 }
             },
             getNavBars: function () {
                 return navbars;
+            },
+            removeShadow: function () {
+                 for (var i = 0; i < navbars.length; i++) {
+                    var header = angular.element(navbars[i]);
+                    header.css({boxShadow: 'none'})
+                }
+            },
+            addShadow: function () {
+                 for (var i = 0; i < navbars.length; i++) {
+                    var header = angular.element(navbars[i]);
+                    header.css({boxShadow: '0px 1px 4px 0 rgba(0, 0, 0, 0.16)'})
+                }
             }
         }
     });

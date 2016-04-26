@@ -1,13 +1,13 @@
 /* Empty. Add your own CSS if you like */
 /*primary color #35704D */
 .bar.bar-balanced {
-    border-color: #35704D;
-    background-color: #35704D;
-     background-image: linear-gradient(0deg, transparent, transparent 50%, transparent 50%) !important; 
-    color: #fff;
-}
-.ayu-primary{
-	background-color: #35704D ;
+  border-color: #254d35 ;
+  background-color: #35704d ;
+  background-image: linear-gradient(0deg, transparent, transparent 50%, transparent 50%);
+  color: #fff;
+}  
+.ayu-primary-c{
+    color: #35704D !important;
 }
 .white{
 	color: #fff !important;
@@ -17,6 +17,19 @@
     background-size: 120%;
     background-position: 0%;
     transition: all .5s ease-in-out;
+}
+ion-view > .scroll-content{
+    background-color: #eee;
+}
+.height220{
+        height: 220px !important;
+}
+
+.fs16{
+    font-size: 16px !important;
+}
+.fs14{
+    font-size: 14px !important;
 }
 /* Utilities */
 
@@ -227,7 +240,7 @@ h4:first-child {
     height: 47px !important;
 }
 .home-bg{
-  background-image: url('../img/background-img.png');
+  
 }
 .bg-css{
         background-size: cover;
@@ -248,7 +261,7 @@ h4:first-child {
     color: #35704D;
 }
 .title-wrapper{
-	color: #fff;
+	color: #35704D;
 }
 .container-padding{
 	    margin-top: 60vh;
@@ -259,9 +272,9 @@ h4:first-child {
     -moz-border-radius: 100px;
     -webkit-border-radius: 100px;
     border-radius: 100px;
-    -moz-box-shadow: 0px 0px 2px #888;
-    -webkit-box-shadow: 0px 0px 2px #888;
-    box-shadow: 0px 0px 2px #FFFFFF;
+    -moz-box-shadow: 0px 0px 2px #35704D;
+    -webkit-box-shadow: 0px 0px 2px #35704D;
+    box-shadow: 0px 0px 2px #35704D;
     margin-bottom: 5px;
 }
 .mb10{
@@ -275,4 +288,104 @@ h4:first-child {
 }
 .button.button-balanced { 
     background-color: #35704D !important; 
+}
+.banner-wrapper img{
+    height: 250px;
+    width: 100%;
+}
+/* Start Videos page*/
+
+.videos-left > img:first-child, .videos-left .item-image, .videos-left .item-content > img:first-child, .videos-left .item-content .item-image {
+     border-radius: 0% !important;  
+}
+.videos-left > img:first-child, .videos-left .item-image, .videos-left .item-content > img:first-child, .videos-left .item-content .item-image {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 100px;
+    max-height: 80px;
+    width: 100%;
+    height: 100%;
+}
+.videos-left h2{
+    font-size: 13px !important;
+        overflow: visible;
+    text-overflow: none;
+    white-space: normal;
+}
+/* End Videos page*/
+
+   .embed-responsive {
+      position: relative;
+      display: block;
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .embed-responsive.embed-responsive-16by9 {
+      padding-bottom: 56.25%;
+    }
+
+    .embed-responsive-item {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .nav-section-home{
+        margin-top: 10%;
+    }
+    .cover-img-wrap {
+    margin-bottom: -5px;
+}
+.center-select-ddl{ 
+      width: 95%;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 4px 0px;
+}
+.title-wrapper h4{
+    color: #444444;
+    padding-left: 16px;
+}
+/* Searhc Bar package treatment*/
+.custom-input-warpper{
+    background: white;
+    height: auto !important;
+    width: 90% !important;
+    padding: 0px;  
+    height: 35px !important;
+    margin: 0px 14px 4px 14px;
+}
+.section-title{
+    color: #444444;
+
+        margin: 0px 0px 4px -4px;
+    padding: 0px;
+}
+/* Searhc Bar package treatment*/
+.default-item .item{
+    background-color: #fff !important;
+}
+.default-item .item-divider{
+    background-color: #eee !important;
+        height: 40px !important;
+    line-height: 23px !important;
+}
+ion-footer-bar .item {
+    border: none;
+}
+ion-footer-bar .item-icon-right{
+        padding: 37px 0px 0px 0px;
+}
+.social-icon {
+    right: 26px !important;
+}
+.no-border{
+    border: none !important;
 }

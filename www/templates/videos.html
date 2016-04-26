@@ -1,0 +1,16 @@
+<ion-view cache-view="false" hide-menu-button="true">
+    <ion-nav-title>{{::searchFor}}</ion-nav-title>
+    <ion-content class="">
+          
+        <div class="list card" ng-repeat="video in videos">
+      <div class="item item-text-wrap">
+        <h2 class="fs14">{{::video.snippet.title}}</h2>
+        <p>{{::video.snippet.date}}</p>
+      </div>
+      <div class="item item-image">
+           <div class="embed-responsive embed-responsive-16by9"><youtube-video class="embed-responsive-item" video-id="video.id.videoId" player-vars="playerVars"></youtube-video></div>
+      </div>
+
+    </div>
+    </ion-content>
+</ion-view>

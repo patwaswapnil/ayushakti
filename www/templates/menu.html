@@ -19,46 +19,64 @@
                 Ayushakti
             </div>
         </ion-header-bar>
-        <ion-content class="stable-bg has-expanded-header">
+        <ion-content class="stable-bg has-expanded-header ">
             <ion-list>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.home">
                     Home
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.home">
                     Updates
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.about">
                     About
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.services">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.services">
                     Services
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.testimonials">
                     Testimonials
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.home">
                     Book an appointment
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.diseases">
                     Diseases Info
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.home">
                     Detail
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.centers">
                     Centers
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.newsletter">
                     Newsletter
                 </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
+                <ion-item nav-clear menu-close class="no-border" ui-sref="app.contact-us">
                     Contact
-                </ion-item>
-                <ion-item nav-clear menu-close ui-sref="app.home">
-                    Social Connect
-                </ion-item>
+                </ion-item> 
+                <ion-item nav-clear menu-close class="no-border"  ng-click="login()">
+                    Login
+                </ion-item> 
                 
             </ion-list>
         </ion-content>
+        <ion-footer-bar align-title="left" class="bar-balanced">
+ <div class="col txt-center">
+  <a  class="item item-icon-right">
+    <i class="icon ion-social-facebook fs16 social-icon"></i>
+    </a>
+  </div>
+ <div class="col txt-center">
+  <a  class="item item-icon-right">
+    <i class="icon ion-social-youtube fs16 social-icon"></i>
+    </a>
+  </div>
+ <div class="col txt-center">
+  <a  class="item item-icon-right">
+    <i class="icon ion-social-twitter fs16 social-icon"></i>
+    </a>
+  </div>
+ 
+</ion-footer-bar>
     </ion-side-menu>
 </ion-side-menus>

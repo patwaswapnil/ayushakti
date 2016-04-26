@@ -1,6 +1,6 @@
 angular.module('ayushakti.controllers', [])
 
-.controller('AppCtrl',['$scope', '$ionicModal', '$timeout', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl',['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate) {
  
   // Form data for the login modal
   $scope.loginData = {};
@@ -32,9 +32,30 @@ angular.module('ayushakti.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+   $scope.toggleLeftSideMenu = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
 }])
  
 .controller('HomeCtrl',['$scope', '$stateParams', function($scope, $stateParams) {
+}])
+.controller('VideosCtrl',['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
+      $scope.videos = [];
+    $scope.searchFor = $stateParams.searchParam;
+    $scope.youtubeParams = {
+      key: 'AIzaSyBAsHcjLchsoINieT-XJ6PeEYPO8QsRdvc',
+      type: 'video',
+      q: $scope.searchFor,
+      maxResults: '50',
+      part: 'snippet', 
+      order: 'date',
+      channelId: 'UCA6BceCsEB35u49xIdFE1ig',
+    }
+
+    $http.get('https://www.googleapis.com/youtube/v3/search', {params:$scope.youtubeParams}).success(function(response){
+      $scope.videos = response.items;
+    });
+
 }]);
 // .controller('Ctrl',['$scope', '$stateParams', function($scope, $stateParams) {
 // }]);

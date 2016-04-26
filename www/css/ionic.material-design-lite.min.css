@@ -57,7 +57,7 @@
   background: #11c1f3; }
 
 .item-md-label .highlight-balanced {
-  background: #33cd5f; }
+  background: #35704d; }
 
 .item-md-label .highlight-energized {
   background: #ffc900; }
@@ -173,7 +173,9 @@
   z-index: 2;
   font-size: 1.3em;
   width: 100%;
-  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); }
+  /*box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); */
+  box-shadow:  0px 1px 4px 0 rgba(0, 0, 0, 0.16);; 
+}
 
 .bar .button {
   min-width: 38px;
@@ -2326,7 +2328,7 @@ a {
 .button-bar-balanced.activated,
 .bar-balanced.activated,
 .balanced-border.activated {
-  background-color:  #33CD5F;
+  background-color:  #35704d;
   color: #fff; }
 
 .balanced-900-bg,
