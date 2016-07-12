@@ -1,5 +1,5 @@
-<ion-view  cache-view="false" hide-menu-button="true" >
-<ion-nav-title>Home</ion-nav-title>
+<ion-view   hide-menu-button="true" >
+<ion-nav-title>Ayushakti</ion-nav-title>
   <ion-content class="home-bg bg-css" has-bouncing="false">
           <div class="banner-wrapper">
             <ion-slide-box auto-play="true" does-continue="true" on-slide-changed="slideChanged(index)" style="text-align:center;">
@@ -15,6 +15,9 @@
                 <ion-slide>
                     <img ng-src="img/banner/banner4.jpg" class="img">
                 </ion-slide>
+                <ion-slide>
+                    <img ng-src="img/banner/banner5.jpg" class="img">
+                </ion-slide>
             </ion-slide-box>
         </div>
 
@@ -22,52 +25,56 @@
      	<div class="row  mb10">
 			<div class="col txt-center block-wrapper"  ui-sref="app.services">
 				<div class="icon-wrapper">
-					<i class="circle-icon icon ion-android-people"></i>
+					<i class="circle-icon icon ion-leaf"></i>
 				</div>
 				<div class="title-wrapper">
 					Services <br> We Offer
 				</div>
 			</div>
-			<div class="col txt-center block-wrapper"  ui-sref="app.diseases-package">
+				<div class="col txt-center block-wrapper" ui-sref="app.bookAppointment">
 				<div class="icon-wrapper">
-					<i class="circle-icon icon ion-android-people"></i>
-				</div>
-				<div class="title-wrapper">
-					Treatment <br> Packages
-				</div>
-			</div>
-			<div class="col txt-center block-wrapper" ui-sref="app.home">
-				<div class="icon-wrapper">
-					<i class="circle-icon icon ion-android-people"></i>
+					<i class="circle-icon icon ion-medkit"></i>
 				</div>
 				<div class="title-wrapper">
 					Book <br> Appointment
 				</div>
 			</div>
-     	</div>
-     	<div class="row">
-			<div class="col txt-center block-wrapper" ui-sref="app.diseases">
+					<div class="col txt-center block-wrapper" ui-sref="app.centers">
 				<div class="icon-wrapper">
-					<i class="circle-icon icon ion-android-people"></i>
-				</div>
-				<div class="title-wrapper">
-					Diseases <br> Information
-				</div>
-			</div>
-			<div class="col txt-center block-wrapper" ui-sref="app.centers">
-				<div class="icon-wrapper">
-					<i class="circle-icon icon ion-android-people"></i>
+					<i class="circle-icon icon ion-location"></i>
 				</div>
 				<div class="title-wrapper">
 					Healthcare <br> Centers
 				</div>
 			</div>
-			<div class="col txt-center block-wrapper" ng-click="toggleLeftSideMenu()">
+			
+		
+     	</div>
+     	<div class="row">
+     				<div class="col txt-center block-wrapper" ui-sref="app.diseases">
 				<div class="icon-wrapper">
-					<i class="circle-icon icon ion-android-people"></i>
+					<i class="circle-icon icon ion-information"></i>
 				</div>
 				<div class="title-wrapper">
-					Know <br>More
+					Diseases <br> Information
+				</div>
+			</div>
+     	<div class="col txt-center block-wrapper"  ui-sref="app.testimonials">
+				<div class="icon-wrapper">
+					<i class="circle-icon icon ion-quote"></i>
+				</div>
+				<div class="title-wrapper">
+					What <br> People Say
+				</div>
+			</div>
+
+	
+			<div class="col txt-center block-wrapper" ui-sref="app.updates">
+				<div class="icon-wrapper">
+					<i class="circle-icon icon ion-calendar"></i>
+				</div>
+				<div class="title-wrapper">
+					Latest <br> Updates
 				</div>
 			</div>
      	</div>

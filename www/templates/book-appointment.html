@@ -1,0 +1,44 @@
+<ion-view  hide-menu-button="true" >
+<ion-nav-title>Book Appointment</ion-nav-title>
+  <ion-content ti-fade-in-nav-bar-on-scroll fade-to-rgb="53,112,77" state-name="app.contact-us" has-bouncing="false"> 
+     <div class="cover-img-wrap">
+        <img ng-src="img/contact.jpg" class="cover-img w100 height220">
+      </div>
+ 
+        <h4 class="sub-heading padding">Fill The Form For Appointment</h4>
+         <form id="contact-form" name="contactForm" ng-submit="bookAppointment(appointment)">
+            <div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="First Name*" required ng-model="appointment.fName"> 
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Last Name*" required  ng-model="appointment.lName">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="Email*" required  ng-model="appointment.email">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Phone</span>
+    <input type="tel" placeholder="Phone*" required  ng-model="appointment.phone">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Location</span>
+    <input type="text" placeholder="Location*" required  ng-model="appointment.location">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Write Your Message</span>
+    <textarea placeholder="Message*" class="text-area"  ng-model="appointment.message"></textarea> 
+  </label>
+</div>
+            <div class="padding-left padding-right">
+                <button class="button button-block button-balanced" type="submit" ng-disabled="!(appointment.fName || appointment.lName || appointment.email || appointment.phone || appointment.location || appointment.message)">
+                    Submit
+                </button>
+            </div>
+        </form>
+  </ion-content>
+</ion-view>
+<!-- ng-disabled="!(appointment.fName && appointment.lName && appointment.email && appointment.phone && appointment.message && appointment.location)" -->

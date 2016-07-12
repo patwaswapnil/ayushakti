@@ -1,24 +1,26 @@
-<ion-view cache-view="false" hide-menu-button="true">
+<ion-view hide-menu-button="true">
     <ion-nav-title>Centers</ion-nav-title>
  
     <ion-content class="">
     <div class=" ">
       <div class="  w100 txt-center">
-                <select class="center-select-ddl" name="" id="">
-                    <option value="">Select Country</option>
-                    <option value="">India</option>
+                <select class="center-select-ddl mt10" name="" id="" ng-model="country" ng-change="checkNLoadAdd(country, 'country')">
+                    <option value="">Select Country</option> 
+                    <option ng-repeat="location in locations" ng-if="location.parent == 1" ng-value="location.cat_ID">{{location.name}}</option> 
                 </select>
             </div>
             <div class="  w100 txt-center">
-                <select class="center-select-ddl" name="" id="">
+                <select class="center-select-ddl" name="" id="" ng-model="city" ng-change="checkNLoadAdd(city, 'city')">
                     <option value="">Select City</option>
-                    <option value="">Mumbai</option>
+                    <option ng-repeat="cities in locations" ng-value="cities.cat_ID" ng-if="country && cities.parent == country" >
+                    {{cities.name}} </option>
                 </select>
             </div>
-            <div class="  w100 txt-center">
-                <select class="center-select-ddl" name="" id="">
+            <div class="  w100 txt-center"> 
+                <select class="center-select-ddl" name="" ng-model="location" id="" ng-change="checkNLoadAdd(location, 'location')">
                     <option value="">Select Location</option>
-                    <option value="">Ghatkoper</option>
+                    <option ng-repeat="town in locations" ng-value="town.cat_ID" ng-if="country && city && town.parent == city">
+                    {{town.name}}
                 </select>
             </div>
 </div>
@@ -28,38 +30,11 @@
  AYUSHAKTI AYURVED CENTER: 
  </h4>
  </div>
-      <div class="card">
+      <div class="card" ng-repeat="center in centers">
   <div class="item item-text-wrap">
-     Winona Bldg., Unit No-2, 
- 4th Floor, 15a/7 Erandwane, <br>
- Behind HP Petrol Pump 
- Karve Road,  Pune- 411004  
- <p>contact no 020-25423344/45</p> 
- <p>Hemant Bhambare-09011564123</p>  
-  <p>Email : pune@ayushakti.com</p>
+ <span ng-bind-html="center.content"></span>
   </div>
-</div> <div class="card">
-  <div class="item item-text-wrap">
-     Winona Bldg., Unit No-2, 
- 4th Floor, 15a/7 Erandwane, <br>
- Behind HP Petrol Pump 
- Karve Road,  Pune- 411004  
- <p>contact no 020-25423344/45</p> 
- <p>Hemant Bhambare-09011564123</p>  
-  <p>Email : pune@ayushakti.com</p>
-  </div>
-</div> <div class="card">
-  <div class="item item-text-wrap">
-     Winona Bldg., Unit No-2, 
- 4th Floor, 15a/7 Erandwane, <br>
- Behind HP Petrol Pump 
- Karve Road,  Pune- 411004  
- <p>contact no 020-25423344/45</p> 
- <p>Hemant Bhambare-09011564123</p>  
-  <p>Email : pune@ayushakti.com</p>
-  </div>
-</div>
+</div> 
     </ion-content>
-</ion-view>
- AYUSHAKTI AYURVED CENTER: 
+</ion-view> 
   

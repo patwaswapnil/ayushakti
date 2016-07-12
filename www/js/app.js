@@ -1,10 +1,10 @@
 // Ionic ayushakti App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'ayushakti' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'ayushakti.controllers' is found in controllers.js
-angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayushakti.services', 'tiNavBar', 'youtube-embed'])
+var domain = 'http://ayushakti.cruxservers.in/?action=getPage&id=';
+angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayushakti.services', 'tiNavBar', 'youtube-embed', 'ngSanitize'])
 
 .run(function($ionicPlatform, $cordovaStatusbar) {
   $ionicPlatform.ready(function() {
@@ -15,11 +15,14 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
+    try {
+    if (window.StatusBar) { 
       StatusBar.styleDefault();
     }
       $cordovaStatusbar.styleHex('#2E6142');
+    } catch(e) {
+        
+    }
   });
 })
 
@@ -46,7 +49,8 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
     url: '/about',
     views: {
       'menuContent': {
-        templateUrl: 'templates/about.html'
+        templateUrl: 'templates/about.html',
+        controller: 'aboutCtrl'
       }
     }
   })
@@ -57,19 +61,18 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
         templateUrl: 'templates/services.html'
       }
     }
-  })
-  .state('app.pulse-consultation', {
-    url: '/pulse-consultation',
-    cache: false,
+  })  
+  .state('app.common-text-page', {
+    url: '/common-text-page/:id',
     views: {
       'menuContent': {
-        templateUrl: 'templates/pulse-consultation.html'
+        templateUrl: 'templates/common/text-page.html',
+        controller: 'ServicesCtrl'
       }
     }
-  })
+  })  
   .state('app.detox-package', {
     url: '/detox-package',
-    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/detox-package.html'
@@ -78,17 +81,14 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
   })
   .state('app.testimonials', {
     url: '/testimonials',
-    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/testimonials.html',
-        contorller: 'TestimonialsCtrl'
+        templateUrl: 'templates/testimonials.html'
       }
     }
   })
   .state('app.videos', {
-    url: '/videos/:searchParam',
-    cache: true,
+    url: '/videos/:searchParam', 
     views: {
       'menuContent': {
         templateUrl: 'templates/videos.html',
@@ -98,61 +98,68 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
   })
   .state('app.diseases', {
     url: '/diseases',
-    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/diseases.html' 
+        templateUrl: 'templates/diseases.html',
+        controller: 'DiseasesListCtrl'
       }
     }
   })
   .state('app.disease-info', {
-    url: '/disease-info',
-    cache: false,
+    url: '/disease-info/:catId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/disease-info.html' 
+        templateUrl: 'templates/disease-info.html',
+        controller: 'DiseasesInfoCtrl'
       }
     }
   })
   .state('app.contact-us', {
     url: '/contact-us',
-    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/contact-us.html' 
+        templateUrl: 'templates/contact-us.html',
+        controller: 'ContactCtrl'
       }
     }
   })
   .state('app.centers', {
     url: '/centers',
-    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/centers.html' 
+        templateUrl: 'templates/centers.html',
+        controller: 'CenterCtrl' 
       }
     }
   })
   .state('app.diseases-package', {
     url: '/diseases-package',
-    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/diseases-package.html' 
       }
     }
   })
-  .state('app.package-info', {
-    url: '/package-info',
-    cache: false,
+  .state('app.diseases-cat', {
+    url: '/diseases-cat/:catId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/package-info.html' 
+        templateUrl: 'templates/diseases-cat.html',
+        controller: 'DiseasesCatCtrl' 
+      }
+    }
+  })
+  .state('app.package-info', {
+    url: '/package-info/:catId/:termId',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/package-info.html',
+        controller: 'packageInfoCtrl' 
       }
     }
   })
   .state('app.treatment-packages', {
     url: '/treatment-packages',
-    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/treatment-packages.html' 
@@ -161,7 +168,6 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
   })
   .state('app.treatment-package-info', {
     url: '/treatment-package-info',
-    cache: false,
     views: {
       'menuContent': {
         templateUrl: 'templates/treatment-package-info.html' 
@@ -170,10 +176,28 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
   })
   .state('app.newsletter', {
     url: '/newsletter',
-    cache: false,
     views: {
       'menuContent': {
-        templateUrl: 'templates/newsletter.html' 
+        templateUrl: 'templates/newsletter.html',
+        controller: 'NewsLetterCtrl' 
+      }
+    }
+  })
+  .state('app.bookAppointment', {
+    url: '/bookAppointment',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/book-appointment.html',
+        controller: 'BookAppointmentCtrl' 
+      }
+    }
+  })
+  .state('app.updates', {
+    url: '/updates',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/updates.html',
+        controller: 'UpdatesCtrl' 
       }
     }
   })

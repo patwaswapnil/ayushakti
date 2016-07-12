@@ -1,0 +1,18 @@
+<ion-view  hide-menu-button="true">
+    <ion-nav-title>Latest Updates</ion-nav-title>
+ 
+    <ion-content class="">
+ 
+        <div class="title-wrapper">
+ 
+ </div>
+      <div class="card" ng-repeat="update in updates">
+  <div class="item item-text-wrap" >
+   <h3>{{update.title}}</h3>
+   <p ng-bind-html="update | toTrust"></p>
+  </div>
+</div> 
+    </ion-content>
+</ion-view>
+ 
+  

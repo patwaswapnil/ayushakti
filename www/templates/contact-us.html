@@ -1,30 +1,36 @@
-<ion-view  cache-view="false" hide-menu-button="true" >
+<ion-view   hide-menu-button="true" >
 <ion-nav-title>Contact Us</ion-nav-title>
   <ion-content ti-fade-in-nav-bar-on-scroll fade-to-rgb="53,112,77" state-name="app.contact-us" has-bouncing="false"> 
      <div class="cover-img-wrap">
         <img ng-src="img/contact.jpg" class="cover-img w100 height220">
       </div>
-         <form id="contact-form" name="contactForm" ng-submit="send(contactForm)" novalidate>
+    <div class="" ng-bind-html="pageContent.content | toTrust"></div>
+        <h4 class="sub-heading padding">Connect with your Natural Roots</h4>
+         <form id="contact-form" name="contactForm" ng-submit="sendMail(message)">
             <div class="list">
   <label class="item item-input item-floating-label">
     <span class="input-label">First Name</span>
-    <input type="text" placeholder="First Name">
+    <input type="text" placeholder="First Name*" required ng-model="message.fName"> 
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Last Name">
+    <input type="text" placeholder="Last Name*" required  ng-model="message.lName">
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Email</span>
-    <input type="text" placeholder="Email">
+    <input type="email" placeholder="Email*" required  ng-model="message.email">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Phone</span>
+    <input type="number" placeholder="Phone*" required  ng-model="message.phone">
   </label>
   <label class="item item-input item-floating-label">
     <span class="input-label">Message</span>
-    <input type="text" placeholder="Message">
+    <textarea placeholder="Message*" class="text-area"  ng-model="message.message"></textarea> 
   </label>
 </div>
             <div class="padding-left padding-right">
-                <button class="button button-block button-balanced">
+                <button class="button button-block button-balanced" type="submit" ng-disabled="!(message.fName && message.lName && message.email && message.phone && message.message)">
                     Submit
                 </button>
             </div>

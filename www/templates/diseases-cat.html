@@ -1,0 +1,14 @@
+<ion-view   hide-menu-button="true" >
+<ion-nav-title> </ion-nav-title>
+  <ion-content class=""> 
+        
+ <div class="list">
+ 
+      <a ui-sref="app.package-info({catId:  list.parent, termId: list.term_id})" class="item item-icon-right" ng-repeat="list in diseasesCat" ng-if="list.parent == catId">
+    <i class="icon ion-chevron-right fs16"></i>
+     {{::list.name}}
+  </a>  
+</div>
+
+  </ion-content>
+</ion-view>

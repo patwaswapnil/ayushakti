@@ -1,10 +1,10 @@
 angular.module('ayushakti.services', [])
 
-.factory('Loader', ['$ionicLoading', '$timeout', function($ionicLoading, $timeout) {
+.factory('Loader', ['$ionicLoading', '$timeout', '$cordovaToast',  function($ionicLoading, $timeout, $cordovaToast) {
 
         var LOADERAPI = {
 
-            showLoading: function(text) {
+            show: function(text) {
                 if (text) {
                     $ionicLoading.show({
                         template: text
@@ -14,7 +14,7 @@ angular.module('ayushakti.services', [])
                 }
             },
 
-            hideLoading: function() {
+            hide: function() {
                 $ionicLoading.hide();
             },
 
@@ -26,6 +26,16 @@ angular.module('ayushakti.services', [])
                 $timeout(function() {
                     self.hideLoading();
                 }, timeout || 3000);
+            },
+            toast: function (msg) {   
+                var isAndroid = ionic.Platform.isAndroid();
+                var isIOS = ionic.Platform.isIOS();
+                if (isAndroid || isIOS) {
+                 $cordovaToast.show(msg, 'short', 'center').then(function(success) {});    
+                }
+                else {
+                     alert(msg);
+                }
             }
 
         };

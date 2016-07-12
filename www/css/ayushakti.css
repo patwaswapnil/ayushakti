@@ -79,7 +79,7 @@ h4:first-child {
 
 .menu .bar.bar-header.expanded {
     background-image: url('../img/side-menu-bg.jpg');
-    background-size: 120%;
+    background-size: 106%;
     background-position: 0%;
     transition: all .5s ease-in-out;
 }
@@ -290,7 +290,7 @@ h4:first-child {
     background-color: #35704D !important; 
 }
 .banner-wrapper img{
-    height: 250px;
+    max-height: 550px;
     width: 100%;
 }
 /* Start Videos page*/
@@ -388,4 +388,31 @@ ion-footer-bar .item-icon-right{
 }
 .no-border{
     border: none !important;
+}
+.image-wrapper {
+    text-align: center;
+}
+.bullet li{
+        list-style: initial;
+        margin-top: 10px;
+}
+.sub-heading {
+        font-size: 18px;
+}
+.img-grid {
+    width: 50%;
+    float: left;
+}
+.pt0 {
+    padding-top: 0 !important;
+}
+.nav-bar-title {
+   text-transform: uppercase !important;
+}
+.text-area {
+        background: #eeeeee;
+        height: 45px;
+}
+.mt10 {
+    margin-top: 10px;
 }
