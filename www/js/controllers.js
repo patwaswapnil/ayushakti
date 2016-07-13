@@ -142,18 +142,19 @@ angular.module('ayushakti.controllers', [])
         };
         $scope.getLocationData();
         $scope.checkNLoadAdd = function(id, category) {
-            var itemFound = true;
+            var itemFound = true; 
             angular.forEach($scope.locations, function(element, index) {
                 if (element.parent == id) {
-                    itemFound = false;
-                    console.log(itemFound);
-                }
+                    itemFound = false;               }
             });
             if (itemFound && id) { 
+                 Loader.show();
                 $http.get('http://ayushakti.cruxservers.in/?action=getCatPosts&cid=' + id).then(function(response) {
                     $scope.centers = response.data;
+                    Loader.hide(); 
                 }, function(error) {
                     console.log(error);
+                    Loader.hide(); 
                 })
             }
         }

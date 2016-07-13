@@ -416,3 +416,6 @@ ion-footer-bar .item-icon-right{
 .mt10 {
     margin-top: 10px;
 }
+pre {
+        font-family: inherit !important;
+}
