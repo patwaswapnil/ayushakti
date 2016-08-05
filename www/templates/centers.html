@@ -15,6 +15,7 @@
                     <option ng-repeat="cities in locations" ng-value="cities.cat_ID" ng-if="country && cities.parent == country" >
                     {{cities.name}} </option>
                 </select>
+           
             </div>
             <div class="  w100 txt-center"> 
                 <select class="center-select-ddl" name="" ng-model="location" id="" ng-change="checkNLoadAdd(location, 'location')">

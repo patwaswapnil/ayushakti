@@ -9,7 +9,7 @@
       <div class="card" ng-repeat="update in updates">
   <div class="item item-text-wrap" >
    <h3>{{update.title}}</h3>
-   <p ng-bind-html="update | toTrust"></p>
+   <p ng-bind-html="update.content | toTrust"></p>
   </div>
 </div> 
     </ion-content>
