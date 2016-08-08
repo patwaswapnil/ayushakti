@@ -34,7 +34,7 @@
   </label>
 </div>
             <div class="padding-left padding-right">
-                <button class="button button-block button-balanced" type="submit" ng-disabled="!(appointment.fName || appointment.lName || appointment.email || appointment.phone || appointment.location || appointment.message)">
+                <button class="button button-block button-balanced" type="submit" ng-disabled="!(appointment.fName && appointment.lName && appointment.email && appointment.phone && appointment.location && appointment.message)">
                     Submit
                 </button>
             </div>

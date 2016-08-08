@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+    <h1 class="title">Contact Us</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+        <form id="contact-form" name="contactForm" ng-submit="sendInterestMail(message)">
+            <div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">First Name</span>
+    <input type="text" placeholder="First Name*" required ng-model="message.fName"> 
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Last Name</span>
+    <input type="text" placeholder="Last Name*" required  ng-model="message.lName">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="email" placeholder="Email*" required  ng-model="message.email">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Phone</span>
+    <input type="number" placeholder="Phone*" required  ng-model="message.phone">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Message</span>
+    <textarea placeholder="Message*" class="text-area"  ng-model="message.message"></textarea> 
+  </label>
+</div>
+            <div class="padding-left padding-right">
+                <button class="button button-block button-balanced" type="submit" ng-disabled="!(message.fName && message.lName && message.email && message.phone && message.message)">
+                    Submit
+                </button>
+            </div>
+        </form>
+  </ion-content>
+</ion-modal-view>

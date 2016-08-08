@@ -419,3 +419,11 @@ ion-footer-bar .item-icon-right{
 pre {
         font-family: inherit !important;
 }
+.wordpress-content td, .wordpress-content th {
+    border: 1px solid #ddd !important;
+    padding: 5px !important;
+} 
+.word-type-look {
+    background: #fff;
+    text-align: justify;
+} 

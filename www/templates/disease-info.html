@@ -5,7 +5,7 @@
 
 <div class="list">
 
-  <a ui-sref="app.diseases-cat({catId: category.cat_ID})" class="item item-icon-right" ng-repeat="category in diseasesInfo" ng-if="category.parent == catId">
+  <a ui-sref="app.package-info({catId:  category.parent, termId: category.term_id})" class="item item-icon-right" ng-repeat="category in diseasesInfo" ng-if="category.parent == catId">
     <i class="icon ion-chevron-right fs16"></i>
      {{::category.name}}
   </a> 

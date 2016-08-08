@@ -1,12 +1,14 @@
 <ion-view   hide-menu-button="true" >
 <ion-nav-title> </ion-nav-title>
   <ion-content>  
-       <div class="padding"> 
-      <div class="text-wrapper" ng-repeat="info in diseasesInfo">
-      <!-- {{info.term_id}}{{termId}} -->
-       
+       <div class="padding word-type-look"> 
+      <div class="text-wrapper wordpress-content" ng-repeat="info in diseasesInfo"> 
         <span ng-bind-html="info.description | toTrust" ng-if="termId == info.cat_ID"></span>
       </div> 
+ 
+                <button class="button button-block button-balanced" type="button" ng-click="showInterestForm()">
+                    Show Interest
+                </button>
      
       </div>
   </ion-content>

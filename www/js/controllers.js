@@ -7,7 +7,7 @@ angular.module('ayushakti.controllers', [])
             $scope.loginData = {};
 
             // Create the login modal that we will use later
-            $ionicModal.fromTemplateUrl('templates/login.html', {
+            $ionicModal.fromTemplateUrl('templates/showInterest.html', {
                 scope: $scope
             }).then(function (modal) {
                 $scope.modal = modal;
@@ -19,16 +19,24 @@ angular.module('ayushakti.controllers', [])
             };
 
             // Open the login modal
-            $scope.login = function () {
+            $scope.showInterestForm = function () {
                 $scope.modal.show();
             };
-            $scope.doLogin = function () {
-                console.log('Doing login', $scope.loginData);
-
-                $timeout(function () {
-                    $scope.closeLogin();
-                }, 1000);
-            };
+       
+                $scope.message = {};
+        $scope.sendInterestMail = function (data) {
+            Loader.show();
+            $http.get("http://ayushakti.cruxservers.in/?action=contactUs&name=" + data.fName + ' ' + data.lName + "&email=" + data.email + "&phone=" + data.phone + "&message=" + data.message).then(function (response) {
+                Loader.toast(response.data.msg);
+                Loader.hide();
+                $scope.message = { fName: '', lName: '', email: '', phone: '', message: '' };
+                $scope.$digest;
+            }, function (response) {
+                console.log(response);
+                Loader.hide();
+            })
+        }
+         
             $scope.toggleLeftSideMenu = function () {
                 $ionicSideMenuDelegate.toggleLeft();
             };
@@ -214,6 +222,7 @@ angular.module('ayushakti.controllers', [])
             $http.get("http://ayushakti.cruxservers.in/?action=getCategories&id=" + $scope.catId).then(function (response) {
                 Loader.hide();
                 $scope.diseasesInfo = response.data;
+                $scope.diseasesInfo.description.replace('↵↵', 'hi');
             }, function (error) {
                 console.log(error);
                 Loader.hide();
