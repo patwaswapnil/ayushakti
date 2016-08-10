@@ -1,0 +1,15 @@
+<ion-view   hide-menu-button="true" >
+<ion-nav-title>Home Remedy</ion-nav-title>
+  <ion-content>  
+ 
+<div class="list">
+
+  <a ui-sref="app.package-info({catId:  remedy.parent, termId: remedy.term_id})" class="item item-icon-right" ng-repeat="remedy in homeRemedy" ng-if="remedy.parent == 394">
+    <i class="icon ion-chevron-right fs16"></i>
+     {{::remedy.name}}
+  </a> 
+ 
+
+</div>
+  </ion-content>
+</ion-view>

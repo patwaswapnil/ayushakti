@@ -201,6 +201,15 @@ angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayu
       }
     }
   })
+  .state('app.homeRemedy', {
+    url: '/home-remedy',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/home-remedy-list.html',
+        controller: 'HomeRemedyListCtrl' 
+      }
+    }
+  })
  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

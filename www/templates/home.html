@@ -3,24 +3,11 @@
   <ion-content class="home-bg bg-css" has-bouncing="false">
           <div class="banner-wrapper">
             <ion-slide-box auto-play="true" does-continue="true" on-slide-changed="slideChanged(index)" style="text-align:center;">
-                <ion-slide>
-                    <img ng-src="img/banner/banner1.jpg" class="img">
-                </ion-slide>
-                <ion-slide>
-                    <img ng-src="img/banner/banner2.jpg" class="img">
-                </ion-slide>
-                <ion-slide>
-                    <img ng-src="img/banner/banner3.jpg" class="img">
-                </ion-slide>
-                <ion-slide>
-                    <img ng-src="img/banner/banner4.jpg" class="img">
-                </ion-slide>
-                <ion-slide>
-                    <img ng-src="img/banner/banner5.jpg" class="img">
-                </ion-slide>
+                <ion-slide ng-repeat="banner in banners">
+                    <img ng-src="{{banner.img}}" class="img">
+                </ion-slide> 
             </ion-slide-box>
         </div>
-
      <section class="nav-section-home">
      	<div class="row  mb10">
 			<div class="col txt-center block-wrapper"  ui-sref="app.services">
@@ -69,12 +56,12 @@
 			</div>
 
 	
-			<div class="col txt-center block-wrapper" ui-sref="app.updates">
+			<div class="col txt-center block-wrapper" ui-sref="app.homeRemedy">
 				<div class="icon-wrapper">
 					<i class="circle-icon icon ion-calendar"></i>
 				</div>
 				<div class="title-wrapper">
-					Latest <br> Updates
+					Home <br> Remedies
 				</div>
 			</div>
      	</div>

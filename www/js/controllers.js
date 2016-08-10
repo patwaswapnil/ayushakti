@@ -58,10 +58,19 @@ angular.module('ayushakti.controllers', [])
         }
     ])
 
-    .controller('HomeCtrl', ['$scope', '$stateParams', function ($scope, $stateParams) {
-
+    .controller('HomeCtrl', ['$scope', '$stateParams', 'Loader', '$http', function ($scope, $stateParams, Loader, $http) {
+ 
+                Loader.show();
+                $http.get("http://ayushakti.cruxservers.in/?action=getSlider").then(function (response) { 
+                    Loader.hide();
+                    $scope.banners = response.data;
+                    window.dispatchEvent(new Event('resize'));
+                }, function (response) {
+                    console.log(response);
+                    Loader.hide();
+                }) 
     }])
-    .controller('VideosCtrl', ['$scope', '$stateParams', '$http', function ($scope, $stateParams, $http) {
+    .controller('VideosCtrl', ['$scope', '$stateParams', '$http', 'Loader', '$timeout', function ($scope, $stateParams, $http, Loader, $timeout ) {
         $scope.videos = [];
         $scope.searchFor = $stateParams.searchParam;
         $scope.youtubeParams = {
@@ -73,9 +82,12 @@ angular.module('ayushakti.controllers', [])
             order: 'date',
             channelId: 'UCA6BceCsEB35u49xIdFE1ig',
         }
-
-        $http.get('https://www.googleapis.com/youtube/v3/search', { params: $scope.youtubeParams }).success(function (response) {
+        Loader.show();
+        $http.get('https://www.googleapis.com/youtube/v3/search', { params: $scope.youtubeParams }).success(function (response) {    
             $scope.videos = response.items;
+            $timeout(function () {
+                Loader.hide();
+            }, 1000)
         });
 
     }])
@@ -221,14 +233,26 @@ angular.module('ayushakti.controllers', [])
             Loader.show();
             $http.get("http://ayushakti.cruxservers.in/?action=getCategories&id=" + $scope.catId).then(function (response) {
                 Loader.hide();
-                $scope.diseasesInfo = response.data;
-                $scope.diseasesInfo.description.replace('↵↵', 'hi');
+                $scope.diseasesInfo = response.data; 
             }, function (error) {
                 console.log(error);
                 Loader.hide();
             })
         };
         $scope.getDeseasesInfo();
+    }])
+    .controller('HomeRemedyListCtrl', ['$scope', '$stateParams', '$http', '$sce', 'Loader', function ($scope, $stateParams, $http, $sce, Loader) {
+        $scope.getHomeRemedies = function () {
+            Loader.show();
+            $http.get("http://ayushakti.cruxservers.in/?action=getCategories&id=394").then(function (response) {
+                Loader.hide();
+                $scope.homeRemedy = response.data;
+            }, function (response) {
+                console.log(response);
+                Loader.hide();
+            })
+    };   
+     $scope.getHomeRemedies();
     }])
     .controller('UpdatesCtrl', ['$scope', '$stateParams', '$http', '$sce', 'Loader', function ($scope, $stateParams, $http, $sce, Loader) {
 
