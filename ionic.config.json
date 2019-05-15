@@ -1,4 +1,9 @@
 {
   "name": "Ayushakti",
-  "app_id": "fd0e63f7"
+  "integrations": {},
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
+  ],
+  "pro_id": "fd0e63f7"
 }

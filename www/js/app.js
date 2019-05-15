@@ -3,7 +3,7 @@
 // 'ayushakti' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'ayushakti.controllers' is found in controllers.js
-var domain = 'http://ayushakti.cruxservers.in/?action=getPage&id=';
+var domain = 'http://ayushakti.infi.cf/?action=getPage&id=';
 angular.module('ayushakti', ['ionic', 'ngCordova', 'ayushakti.controllers', 'ayushakti.services', 'tiNavBar', 'youtube-embed', 'ngSanitize'])
 
 .run(function($ionicPlatform, $cordovaStatusbar) {
